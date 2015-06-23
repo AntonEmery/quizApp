@@ -3,7 +3,7 @@
 
 var questions = [['question one', 'answer one'], ['question two', 'answer two']];
 
-//test function to check form submission
-function quiz() {
+//when this function is called need to log the ID of the answer the user chose
+function submitAnswer() {
 	alert('submitted');
 }
