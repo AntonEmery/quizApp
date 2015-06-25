@@ -3,7 +3,8 @@
 
 var questions = [['question one', 'answer one'], ['question two', 'answer two']];
 
-//when this function is called need to log the ID of the answer the user chose
+//when this function is called need to log the value of the answer the user chose
 function submitAnswer() {
-	alert('submitted');
+	//console log value of selected radio button	
+	alert($('input[name="answer"]:checked').val());
 }
