@@ -15,3 +15,17 @@ function submitAnswer() {
 	}
 }
 
+
+
+//testing sending questions as JSON
+function sendAJAX() {
+$.getJSON("questions.json", function(data) {
+      $.each(data, function(key, val){
+        $("#ajax").append('<h3>' + key + ":" + " " + val + '</h3>');
+      })
+    });
+}
+
+function testObject() {
+	$('#testQuestionArea').append(allQuestions[0].correctAnswer);
+};
