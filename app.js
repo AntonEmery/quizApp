@@ -5,27 +5,28 @@ var allQuestions = [{question: "What color is an apple?", choices: ["red", "purp
 									 {question: "Java and Javascript are the same language", choices: ["true", "false"], correctAnswer: 0},
 									 {question: "What is the capital of Oregon?", choices: ["Portland", "Salem", "Bend"], correctAnswer: 1}];
 
-// //when this function is called need to log the value of the answer the user chose
+//compares the correct answer with the submitted answer
 function submitAnswer() {
-	var answer = ($('input[name="answer"]:checked').val());
-	if(answer == questions[0][1]) {
-		alert('That is correct!');
+	var currentQuestion = getQuestionNumber();
+	var selectedAnswer = ($('input[name="answer"]:checked').val());
+	correctAnswer(currentQuestion, selectedAnswer);
+	} 
+
+
+
+//determines correct answer
+function correctAnswer (questionNumber, selectedAnswer) {
+	var correctAnswer = allQuestions[questionNumber - 1].correctAnswer + 1;
+	if(correctAnswer == selectedAnswer) {
+		alert('correct');
 	} else {
-		alert('Try again!');
+		alert('wrong');
 	}
 }
 
+//gets question number
+function getQuestionNumber() {
+	var formID = parseInt($("form").attr("id"));
+	return formID;
+	}
 
-
-//testing sending questions as JSON
-function sendAJAX() {
-$.getJSON("questions.json", function(data) {
-      $.each(data, function(key, val){
-        $("#ajax").append('<h3>' + key + ":" + " " + val + '</h3>');
-      })
-    });
-}
-
-function testObject() {
-	$('#testQuestionArea').append(allQuestions[0].correctAnswer);
-};
