@@ -30,3 +30,12 @@ function getQuestionNumber() {
 	return formID;
 	}
 
+//populates the next question 
+var questionOnPage = 0;
+
+function populateQuestion() {
+		$('h3').text(allQuestions[questionOnPage].question);
+		questionOnPage++;
+	}
+
+
