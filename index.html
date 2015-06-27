@@ -22,23 +22,36 @@
   </head>
   <body>
     <div class="container">
-      
+      <div class="row">
+        <h1>Quiz</h1>
+        <h3>What color is an apple?</h3>
+      </div>
+          
+
       <div class="row">
         <form id="1" onsubmit="submitAnswer()">
-          <div class="input-group">
-            <h1>Quiz</h1>
-            <h3>What color is an apple?</h3>
-            <label for="answer">Answer</label><br>
-              <input type="radio" name="answer" value="1"> Red
-              <input type="radio" name="answer" value="2"> Blue
-              <input type="radio" name="answer" value="3"> Purple
-            
-          </div> <!-- input group -->
-          <input type="submit" value="Submit">
+          <div class="radio">
+          <label>
+            <input type="radio" name="answer" value="1"> Red
+         </label>
+          </div>  
+
+          <div class="radio">
+          <label>
+            <input type="radio" name="answer" value="2"> Blue
+          </label>
+          </div>
+
+          <div class="radio">
+          <label>
+            <input type="radio" name="answer" value="3"> Purple
+          </label>
+          </div>  
+
+          <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
-
-      </div> <!-- row -->
+      </div>
 
      
 
