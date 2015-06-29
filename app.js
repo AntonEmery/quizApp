@@ -38,4 +38,12 @@ function populateQuestion() {
 		questionOnPage++;
 	}
 
+//loop through choices array
+	//select input tag equal to counter in loop
+	//after input tag add that corresponding item in array
+for(var i = 0; i < allQuestions[questionOnPage].choices.length; i++) {
+	$('input:eq('+ i +')').after(allQuestions[questionOnPage].choices[i]);
+}
+
+
 

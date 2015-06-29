@@ -11,6 +11,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Site CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Handlebars
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.amd.min.js"></script>
+    -->
 
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,7 +28,7 @@
     <div id="question1">
       <div class="row">
         <h1>Quiz</h1>
-        <h3></h3>
+        <h3>{{title}}</h3>
       </div>
           
 
@@ -33,19 +36,19 @@
         <form id="1" onsubmit="submitAnswer()">
           <div class="radio">
           <label>
-            <input type="radio" name="answer" value="1"> Red
+            <input type="radio" name="answer" value="1"> 
          </label>
           </div>  
 
           <div class="radio">
           <label>
-            <input type="radio" name="answer" value="2"> Blue
+            <input type="radio" name="answer" value="2"> 
           </label>
           </div>
 
           <div class="radio">
           <label>
-            <input type="radio" name="answer" value="3"> Purple
+            <input type="radio" name="answer" value="3"> 
           </label>
           </div>  
 
