@@ -7,19 +7,20 @@ var allQuestions = [{question: "What color is an apple?", choices: ["red", "purp
 									 {question: "What is a common nickname for Portland?", choices:["Hiptown", "Stumptown", "Jewel of the North West"], correctAnswer: 1},
 									 {question: "Portland is known for its:", choices: ["coffee", "hipsters", "all of the above"], correctAnswer: 2}];
 
+var currentQuestion = 1;
+
 //compares the correct answer with the submitted answer
 function submitAnswer() {
-	var currentQuestion = getQuestionNumber();
+	//var currentQuestion = getQuestionNumber();
 	var selectedAnswer = ($('input[name="answer"]:checked').val());
 	correctAnswer(currentQuestion, selectedAnswer);
-	populateQuestion();
 	} 
 
-//gets question number
-function getQuestionNumber() {
-	var formID = parseInt($("form").attr("id"));
-	return formID;
-	}
+// //gets question number
+// function getQuestionNumber() {
+// 	var formID = parseInt($("form").attr("id"));
+// 	return formID;
+// 	}
 
 var finalScore = 0;
 
@@ -28,7 +29,6 @@ function correctAnswer (questionNumber, selectedAnswer) {
 	var correctAnswer = allQuestions[questionNumber - 1].correctAnswer + 1;
 	if(correctAnswer == selectedAnswer) {
 		alert('correct');
-		$("form").attr("id", currentQuestion + 1)
 		finalScore++
 	} else {
 		alert('wrong');
