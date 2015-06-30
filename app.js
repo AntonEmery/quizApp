@@ -2,7 +2,12 @@
 //user selects question and submits. it takes the ID of that radio button and checks it against the answer id in that specific question array
 
 var currentQuestion = 1;
+
 var finalScore = 0;
+
+//keeps track of which question in the array we are on
+var questionOnPage = 0;
+
 var allQuestions = [{question: "What color is an apple?", choices: ["red", "purple", "										blue"], correctAnswer: 0}, 
 									 {question: "Javascript is a language primarily used in the", choices: ["web browser", "server", "personal computer"], correctAnswer: 0},
 									 {question: "What is the capital of Oregon?", choices: ["Portland", "Salem", "Bend"], correctAnswer: 1},
@@ -17,7 +22,7 @@ function submitAnswer() {
 	var selectedAnswer = ($('input[name="answer"]:checked').val());
 	correctAnswer(currentQuestion, selectedAnswer);
 	if(currentQuestion == allQuestions.length) {
-		alert('quiz done');
+		showScore();
 	} else {
 		currentQuestion++;
 		populateQuestion();
@@ -54,6 +59,13 @@ function populateQuestion() {
 	questionOnPage++;
 }
 
+function showScore() {
+	$("#question").remove();
+	$("#finalScore").show().append('<h4>You got ' + finalScore + ' question(s) correct</p>');
+}
+
+$("#finalScore").hide();
+populateQuestion()
 
 
 
