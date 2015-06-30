@@ -1,28 +1,29 @@
 //store each question in an array within a larger array
 //user selects question and submits. it takes the ID of that radio button and checks it against the answer id in that specific question array
 
+var currentQuestion = 1;
+var finalScore = 0;
 var allQuestions = [{question: "What color is an apple?", choices: ["red", "purple", "										blue"], correctAnswer: 0}, 
 									 {question: "Javascript is a language primarily used in the", choices: ["web browser", "server", "personal computer"], correctAnswer: 0},
 									 {question: "What is the capital of Oregon?", choices: ["Portland", "Salem", "Bend"], correctAnswer: 1},
 									 {question: "What is a common nickname for Portland?", choices:["Hiptown", "Stumptown", "Jewel of the North West"], correctAnswer: 1},
 									 {question: "Portland is known for its:", choices: ["coffee", "hipsters", "all of the above"], correctAnswer: 2}];
 
-var currentQuestion = 1;
+
 
 //compares the correct answer with the submitted answer
 function submitAnswer() {
 	//var currentQuestion = getQuestionNumber();
 	var selectedAnswer = ($('input[name="answer"]:checked').val());
 	correctAnswer(currentQuestion, selectedAnswer);
+	if(currentQuestion == allQuestions.length) {
+		alert('quiz done');
+	} else {
+		currentQuestion++;
+		populateQuestion();
 	} 
+}
 
-// //gets question number
-// function getQuestionNumber() {
-// 	var formID = parseInt($("form").attr("id"));
-// 	return formID;
-// 	}
-
-var finalScore = 0;
 
 //determines correct answer
 function correctAnswer (questionNumber, selectedAnswer) {
@@ -49,8 +50,11 @@ function populateQuestion() {
 		//$('input:eq('+ i +')').after(allQuestions[questionOnPage].choices[i]);
 		$('input:eq('+ i +')')[0].nextSibling.nodeValue = allQuestions[questionOnPage].choices[i];
 	}
+	$('input[name=answer]').attr('checked', false);
 	questionOnPage++;
 }
+
+
 
 
 
